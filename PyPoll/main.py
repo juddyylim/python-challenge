@@ -2,6 +2,12 @@ import os
 import csv
 
 csvpath = 'election_data.csv'
+f = open("PyPoll.txt", "w")
+
+def finalprint(text):
+    f.write(text + "\n")
+    print(text)
+
 with open(csvpath, newline='') as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -51,14 +57,14 @@ with open(csvpath, newline='') as csvfile:
             highestvote = list[x]["votes"]
             winner = list[x]["name"]
     
-    print("Election Results")
-    print("--------------------------")
-    print("Total Votes: " + str(votetotal))
-    print("--------------------------")
-    print(str(candidates[0]) + ": " + str(c1percent) + " " + "(" + str(candidatevotes[0]) + ")")
-    print(str(candidates[1]) + ": " + str(c2percent) + " " + "(" + str(candidatevotes[1]) + ")")
-    print(str(candidates[2]) + ": " + str(c3percent) + " " + "(" + str(candidatevotes[2]) + ")")
-    print(str(candidates[3]) + ": " + str(c4percent) + " " + "(" + str(candidatevotes[3]) + ")")
-    print("--------------------------")
-    print("Winner: " + winner)
+    finalprint("Election Results")
+    finalprint("--------------------------")
+    finalprint("Total Votes: " + str(votetotal))
+    finalprint("--------------------------")
+    finalprint(str(candidates[0]) + ": " + str(c1percent) + " " + "(" + str(candidatevotes[0]) + ")")
+    finalprint(str(candidates[1]) + ": " + str(c2percent) + " " + "(" + str(candidatevotes[1]) + ")")
+    finalprint(str(candidates[2]) + ": " + str(c3percent) + " " + "(" + str(candidatevotes[2]) + ")")
+    finalprint(str(candidates[3]) + ": " + str(c4percent) + " " + "(" + str(candidatevotes[3]) + ")")
+    finalprint("--------------------------")
+    finalprint("Winner: " + winner)
 
